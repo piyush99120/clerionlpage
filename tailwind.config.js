@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,28 +7,35 @@ module.exports = {
   theme: {
     extend: {
       animation: {
+        'gradient-x': 'gradient-x 15s ease infinite',
+        'gradient-y': 'gradient-y 10s ease infinite',
         'float': 'float 6s ease-in-out infinite',
-        'slide-in': 'slideIn 0.6s ease-out forwards',
+        'float-particle-0': 'float-particle 20s ease-in-out infinite',
+        'float-particle-1': 'float-particle 25s ease-in-out infinite',
+        'float-particle-2': 'float-particle 30s ease-in-out infinite',
+        'float-particle-3': 'float-particle 35s ease-in-out infinite',
+        'float-particle-4': 'float-particle 40s ease-in-out infinite',
       },
-      container: {
-        center: true,
-        padding: '1rem'
+      keyframes: {
+        'gradient-x': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
+        'gradient-y': {
+          '0%, 100%': { 'background-position': '50% 0%' },
+          '50%': { 'background-position': '50% 100%' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'float-particle': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '25%': { transform: 'translate(100px, -100px)' },
+          '50%': { transform: 'translate(0, -200px)' },
+          '75%': { transform: 'translate(-100px, -100px)' },
+        },
       },
-      colors: {
-        'primary': {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-        }
-      }
     },
   },
-  plugins: [],
 }
